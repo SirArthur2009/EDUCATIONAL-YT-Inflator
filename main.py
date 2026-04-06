@@ -14,6 +14,7 @@ def saveURL(url):
         os.makedirs(directory, exist_ok=True)
     except Exception as e:
         print(f"Error saving URL: {e}")
+
 def loadURL():
     try:
         with open("C:\\Program Files\\YouTube Looper\\last_url.txt", "r") as file:
