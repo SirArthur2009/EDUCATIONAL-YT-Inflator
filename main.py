@@ -1,3 +1,4 @@
+import os
 import time
 import webbrowser
 import pyautogui
@@ -5,9 +6,14 @@ import random
 import getGUIinputs
 
 def saveURL(url):
-    with open("last_url.txt", "w") as file:
-        file.write(url)
-
+    try:
+        with open("C:\\Program Files\\YouTube Looper\\last_url.txt", "w") as file:
+            file.write(url)
+    except FileNotFoundError:
+        directory = "C:\\Program Files\\YouTube Looper"
+        os.makedirs(directory, exist_ok=True)
+    except Exception as e:
+        print(f"Error saving URL: {e}")
 def loadURL():
     try:
         with open("C:\\Program Files\\YouTube Looper\\last_url.txt", "r") as file:

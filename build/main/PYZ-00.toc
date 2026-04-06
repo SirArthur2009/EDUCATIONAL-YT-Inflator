@@ -520,6 +520,10 @@
   ('pprint',
    'C:\\Users\\levig\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pprint.py',
    'PYMODULE'),
+  ('promptAdmin',
+   'C:\\Users\\levig\\Documents\\Programming\\Python\\Simple Programs\\Youtube '
+   'Looper\\promptAdmin.py',
+   'PYMODULE'),
   ('py_compile',
    'C:\\Users\\levig\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\py_compile.py',
    'PYMODULE'),
