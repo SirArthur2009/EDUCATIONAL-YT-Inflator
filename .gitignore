@@ -1,6 +1,7 @@
-build/
+/build/
 main.spec
 pyinstaller-*.log
-__pycache__/
+/__pycache__/
 dist/
 *.pyc
+*.spec

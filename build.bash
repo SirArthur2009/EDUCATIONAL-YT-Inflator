@@ -1,0 +1,1 @@
+pyinstaller --onefile --noconsole --name YoutubeLooper --icon=icon.ico --manifest app.manifest main.py
