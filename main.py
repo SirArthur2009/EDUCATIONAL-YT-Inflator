@@ -10,7 +10,7 @@ def saveURL(url):
 
 def loadURL():
     try:
-        with open("last_url.txt", "r") as file:
+        with open("C:\\Program Files\\YouTube Looper\\last_url.txt", "r") as file:
             return file.read().strip()
     except FileNotFoundError:
         return ""
