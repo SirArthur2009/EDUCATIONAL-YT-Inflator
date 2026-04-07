@@ -1,51 +1,94 @@
 # YouTube Looper
 
-A simple Python-based YouTube view bot that automates viewing videos by opening them in Google Chrome and simulating key presses to play and pause the video. This tool allows users to specify a YouTube URL and the number of views to generate.
+A simple cross-platform Python YouTube view automation tool. It uses a Tkinter GUI for input, remembers your last-used URL, and opens videos in a browser while using PyAutoGUI to control playback.
 
 ## Features
 
-- **Graphical User Interface (GUI)**: Easy-to-use Tkinter-based interface for inputting the YouTube URL, desired number of views, and whether the video starts paused.
-- **URL Persistence**: Automatically saves and loads the last used URL for convenience.
-- **Randomized Viewing Time**: Simulates realistic viewing by waiting a random duration (based on a normal distribution) before closing the video.
-- **Chrome Integration**: Opens videos in a specified Chrome browser instance.
+- **Cross-platform support**: Works on Windows, macOS, and Linux.
+- **Graphical interface**: Tkinter GUI for URL, view count, and paused-state input.
+- **URL persistence**: Saves the last entered URL in a user-specific configuration folder.
+- **Browser detection**: Automatically finds Chrome, Chromium, Edge, Brave, or Safari where available.
+- **Randomized view time**: Simulates viewing duration with a randomized delay.
 
 ## Requirements
 
 - Python 3.x
-- Google Chrome installed at `C:\Program Files\Google\Chrome\Application\chrome.exe` (or update the path in `main.py` if different)
-- Required Python packages:
-  - `pyautogui`
-  - `tkinter` (usually included with Python)
+- `tkinter` (usually included with Python)
+- `pyautogui`
+
+### Linux prerequisites
+
+On many Linux systems, install the GUI dependencies before `pyautogui`:
+
+```bash
+sudo apt install python3-tk python3-dev python3-xlib scrot
+```
+
+### macOS prerequisites
+
+If you have installation issues, install these packages:
+
+```bash
+pip install pyobjc-core pyobjc
+```
 
 ## Installation
 
 1. Clone or download this repository.
-2. Install the required Python packages:
-   ```
-   pip install pyautogui
-   ```
-3. Ensure Google Chrome is installed and the path in `main.py` is correct.
+2. Install runtime dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+If you want to build a standalone executable, install the development dependency:
+
+```bash
+pip install -r requirements-dev.txt
+```
+
+## Helper scripts
+
+On macOS/Linux:
+
+```bash
+./install.sh
+./build.sh
+```
+
+On Windows PowerShell:
+
+```powershell
+.\build.ps1
+```
 
 ## Usage
 
-1. Run the script:
-   ```
-   python main.py
-   ```
-2. In the GUI:
-   - Enter the YouTube video URL.
-   - Specify the number of views you want to generate.
-   - Check the box if the video starts paused.
-3. Click "Submit" to start the automation.
+Run the script:
 
-The bot will open the video in Chrome, play it for a random duration, and then close the tab, repeating the process for the specified number of views.
+```bash
+python main.py
+```
+
+In the GUI:
+
+- Enter the YouTube video URL.
+- Enter the number of views to generate.
+- Check the box if the video starts paused.
+- Click **Submit**.
+
+The bot will open the video in a detected browser, play it, wait a randomized amount of time, pause it, and close the tab.
+
+## Notes
+
+- On Windows, the script stores settings in `%LOCALAPPDATA%\YouTube Looper\last_url.txt`.
+- On macOS, it stores settings in `~/Library/Application Support/YouTube Looper/last_url.txt`.
+- On Linux, it stores settings in `~/.youtube_looper/last_url.txt`.
 
 ## Disclaimer
 
-Using bots to artificially inflate views may violate YouTube's terms of service and could lead to penalties on your account, including suspension or termination. To avoid detection, consider using an unsigned Chrome profile and a VPN to change your IP address. Use this tool responsibly and at your own risk. The authors are not responsible for any consequences arising from its use.
+Using bots to artificially inflate views may violate YouTube's terms of service and could lead to penalties. Use this tool responsibly and at your own risk.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-This project is for educational purposes only. Please check YouTube's terms of service before use. 
